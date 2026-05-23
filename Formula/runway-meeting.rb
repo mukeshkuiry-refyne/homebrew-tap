@@ -1,7 +1,7 @@
 class RunwayMeeting < Formula
   desc "Aviation-themed macOS menu bar app for Google Calendar"
   homepage "https://github.com/mukeshkuiry/runway"
-  url "https://github.com/mukeshkuiry/runway/releases/download/v1.0.0/runway-meeting-v1.0.0-darwin-arm64.tar.gz"
+  url "https://github.com/mukeshkuiry/runway/releases/download/v1.0.1/runway-meeting-v1.0.0-darwin-arm64.tar.gz"
   sha256 "5b599084fd09c65e06e96576d91b711e7f070cd32a5fa333d58a9b417524ab88"
   license "MIT"
 
