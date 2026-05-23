@@ -1,16 +1,14 @@
 class RunwayMeeting < Formula
   desc "Aviation-themed macOS menu bar app for Google Calendar"
   homepage "https://github.com/mukeshkuiry/runway"
-  url "https://github.com/mukeshkuiry/runway/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "bc3b9b3336d0c65ba434ae6d8144e90bc68e29577ffaea791312e2de8d74e4e3"
+  url "https://github.com/mukeshkuiry/runway/releases/download/v1.0.0/runway-meeting-v1.0.0-darwin-arm64.tar.gz"
+  sha256 "a183b4e32b733586a63cb3303db456362a529010884d738067f00d0411dc11d2"
   license "MIT"
 
-  depends_on xcode: ["15.0", :build]
   depends_on macos: :ventura
 
   def install
-    system "swift", "build", "-c", "release", "--disable-sandbox"
-    bin.install ".build/release/Runway" => "runway"
+    bin.install "Runway" => "runway-meeting"
   end
 
   def post_install
@@ -21,10 +19,10 @@ class RunwayMeeting < Formula
 
   def caveats
     <<~EOS
-      Runway has been installed!
+      Runway Meeting has been installed!
 
       To start Runway now (it will auto-start on future logins):
-        runway
+        runway-meeting
 
       On first launch, you'll be prompted to connect your Google Calendar.
 
@@ -32,21 +30,21 @@ class RunwayMeeting < Formula
         launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/com.mukesh.runway.plist
 
       To uninstall completely:
-        brew uninstall runway
+        brew uninstall runway-meeting
         rm -f ~/Library/LaunchAgents/com.mukesh.runway.plist
         rm -f /tmp/runway.pid
     EOS
   end
 
   service do
-    run opt_bin/"runway"
+    run opt_bin/"runway-meeting"
     keep_alive false
     process_type :background
-    log_path var/"log/runway.out.log"
-    error_log_path var/"log/runway.err.log"
+    log_path var/"log/runway-meeting.out.log"
+    error_log_path var/"log/runway-meeting.err.log"
   end
 
   test do
-    assert_predicate bin/"runway", :executable?
+    assert_predicate bin/"runway-meeting", :executable?
   end
 end
