@@ -1,4 +1,4 @@
-class Runway < Formula
+class RunwayMeeting < Formula
   desc "Aviation-themed macOS menu bar app for Google Calendar"
   homepage "https://github.com/mukeshkuiry/runway"
   url "https://github.com/mukeshkuiry/runway/archive/refs/tags/v1.0.0.tar.gz"
